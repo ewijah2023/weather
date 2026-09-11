@@ -1,5 +1,11 @@
 import "./styles.css";
 
+const searchForm = document.getElementById("search-form");
+const locationInput = document.getElementById("location-input");
+const resultsContainer = document.getElementById("weather-results");
+
+
+
 
 async function getWeatherData(location) {
     const apiKey = process.env.API_KEY;
@@ -16,10 +22,25 @@ async function getWeatherData(location) {
 
 }
 
-(async () => {
-    const data = await getWeatherData("London");
-    console.log(data);
-})();
+searchForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const location = locationInput.value;
 
-console.log("Weather app starting...");
-console.log("API_KEY loaded:", process.env.API_KEY);
+    try {
+        const data = await getWeatherData(location);
+        console.log(data);
+    } catch (error) {
+        console.error(error)
+        resultsContainer.textContent = "Could not find weather for that location. Please try again."
+    }
+});
+
+function renderWeather(data, container) {
+    container.innerHTML =  "";
+
+    const location = document.createElement("h2");
+    location.textContent = data.resolvedAddress;
+
+    const currentTemp = document.createElement("p");
+    currentTemp.textContent = `Temperature: ${data.currentConditions.temp}°C`
+}
