@@ -28,6 +28,7 @@ searchForm.addEventListener("submit", async (event) => {
 
     try {
         const data = await getWeatherData(location);
+        renderWeather(data, resultsContainer);
         console.log(data);
     } catch (error) {
         console.error(error)
@@ -43,4 +44,24 @@ function renderWeather(data, container) {
 
     const currentTemp = document.createElement("p");
     currentTemp.textContent = `Temperature: ${data.currentConditions.temp}°C`
+
+    const feelsLike = document.createElement("p");
+    feelsLike.textContent = `Feels like: ${data.currentConditions.feelslike}°C`
+
+    const conditions = document.createElement("p");
+    conditions.textContent = `Conditions: ${data.currentConditions.conditions}°C`
+
+    const humidity = document.createElement("p");
+    humidity.textContent = `Humidity: ${data.currentConditions.humidity}°C`
+
+    const highLow = document.createElement("p");
+    highLow.textContent = `High: ${data.days[0].tempmax}°C  / Low: ${data.days[0].tempmin}°C`
+
+    container.appendChild(location);
+    container.appendChild(currentTemp);
+    container.appendChild(feelsLike);
+    container.appendChild(conditions);
+    container.appendChild(humidity);
+    container.appendChild(highLow);
+
 }
