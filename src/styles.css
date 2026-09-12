@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 3rem;
+    font-family: systems-ui, sans-serif;
+    background-color: #f0f4f8;
+
+}
+
+#app {
+    width: 100%;
+    max-width: 420px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+
+.wi {
+    font-size: 3rem;
+}
+
+
+#search-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#location-input {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#search-form button {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #2b6cb0;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#search-form button:hover {
+    background-color: #245a94;
+}
+
+#unit-toggle {
+    background: none;
+    border: 1px solid #2b6cb0;
+    color: #2b6cb0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+
+#unit-toggle:hover {
+    background-color: #eaf1fb;
+}
+
+#weather-results h2 {
+    margin: 0 0 0.25rem;
+    font-size: 1.4rem;
+    color: #222;
+}
+
+#weather-results .wi {
+    font-size: 3.5rem;
+    color: #2b6cb0;
+    margin: 0.5rem 0;
+    display: inline-block;
+}
+
+#weather-results p {
+    margin: 0.3rem 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
